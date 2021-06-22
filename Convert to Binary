@@ -1,0 +1,42 @@
+package exam;
+
+import java.util.Scanner;
+
+public class ConvertToBinary {
+
+public String toBinary(final int n) {
+//TODO write your code here to achieve the desired result as explained in Readme file for this problem.
+String op = "";
+int in = n;
+if (in == 0) {
+op = "0";
+} else {
+while (in > 0) {
+op = ((in%2) == 0 ? "0" : "1") + op;
+in = in/2;
+}
+}
+return op;
+}
+public static void main(String args[]) {
+Scanner sc = new Scanner (System.in);
+
+  System.out.print("enter number : ");
+  int n = sc.nextInt();
+  String res = "";
+  
+  if (n < 0) {
+	  extracted();
+  } else {
+	  ConvertToBinary obj = new ConvertToBinary();
+	  res = obj.toBinary(n);
+  }
+  
+  System.out.println(res);
+  
+  sc.close();
+}
+private static void extracted() {
+throw new IllegalArgumentException("Input cannot be negative.");
+}
+}
